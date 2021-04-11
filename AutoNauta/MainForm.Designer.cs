@@ -65,21 +65,21 @@
             // btnRestore
             // 
             this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(180, 22);
+            this.btnRestore.Size = new System.Drawing.Size(119, 22);
             this.btnRestore.Text = "Restore";
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // btnClose
             // 
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(180, 22);
+            this.btnClose.Size = new System.Drawing.Size(119, 22);
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnConnection
             // 
             this.btnConnection.Name = "btnConnection";
-            this.btnConnection.Size = new System.Drawing.Size(180, 22);
+            this.btnConnection.Size = new System.Drawing.Size(119, 22);
             this.btnConnection.Text = "Connect";
             this.btnConnection.Click += new System.EventHandler(this.btnConnection_Click);
             // 
@@ -94,6 +94,7 @@
             // 
             this.editPassword.Location = new System.Drawing.Point(83, 38);
             this.editPassword.Name = "editPassword";
+            this.editPassword.Properties.UseSystemPasswordChar = true;
             this.editPassword.Size = new System.Drawing.Size(100, 20);
             this.editPassword.TabIndex = 2;
             // 
@@ -120,6 +121,7 @@
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MainForm
             // 
@@ -133,6 +135,7 @@
             this.Controls.Add(this.editUsername);
             this.Name = "MainForm";
             this.Text = "AutoNauta";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.contextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.editUsername.Properties)).EndInit();

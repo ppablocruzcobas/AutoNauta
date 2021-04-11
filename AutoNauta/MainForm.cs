@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using System.Net.Http;
 using AutoNauta.Model;
@@ -44,9 +43,6 @@ namespace AutoNauta
 
         async void connect()
         {
-            cURLParams.username = editUsername.Text;
-            cURLParams.password = editPassword.Text;
-
             var response = await httpClient.PostAsync("https://secure.etecsa.net:8443/LoginServlet", cURLParams.getHttpContent());
 
             if (response.IsSuccessStatusCode)
@@ -62,6 +58,8 @@ namespace AutoNauta
                 dURLParams.wlanacname = getBetween(responseString, "wlanacname=", "\"");
                 dURLParams.wlanmac = getBetween(responseString, "wlanmac=", "\"");
                 dURLParams.wlanuserip = getBetween(responseString, "wlanuserip=", "\"");
+
+                dURLParams.saveToRegistry();
 
                 btnConnection.Text = "Disconnect";
                 connected = true;
@@ -106,6 +104,23 @@ namespace AutoNauta
             }
 
             return "";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // TODO: Check for empty or invalid fields...
+            cURLParams.username = editUsername.Text;
+            cURLParams.password = editPassword.Text;
+
+            cURLParams.saveToRegistry();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            cURLParams.loadFromRegistry();
+
+            editUsername.Text = cURLParams.username;
+            editPassword.Text = cURLParams.password;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection;
 
@@ -18,6 +19,31 @@ namespace AutoNauta.Model
             }
 
             return new FormUrlEncodedContent(dict);
+        }
+
+        public void saveToRegistry()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties();
+            RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\AutoNauta");
+
+            foreach (PropertyInfo property in properties)
+            {
+                key.SetValue(property.Name, property.GetValue(this, null).ToString());
+            }
+            key.Close();
+        }
+
+        public void loadFromRegistry()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties();
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\AutoNauta");
+
+            foreach (PropertyInfo property in properties)
+            {
+                if (key.GetValue(property.Name) != null)
+                    property.SetValue(this, key.GetValue(property.Name));
+            }
+            key.Close();
         }
     }
 }
