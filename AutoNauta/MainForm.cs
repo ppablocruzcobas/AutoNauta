@@ -2,16 +2,22 @@
 using System.Windows.Forms;
 using System.Net.Http;
 using AutoNauta.Model;
+using System.Collections.Generic;
 
 namespace AutoNauta
 {
     public partial class MainForm : Form
     {
         private static readonly HttpClient httpClient = new HttpClient();
-        private bool connected = false;
 
         private ConnectURLParams cURLParams = new ConnectURLParams();
         private DisconnectURLParams dURLParams = new DisconnectURLParams();
+
+        private Dictionary<string, string> btnConnectionText = new Dictionary<string, string>
+            {
+                { "1", "Disconnect" },
+                { "0", "Connect" }
+            };
 
         public MainForm()
         {
@@ -61,8 +67,9 @@ namespace AutoNauta
 
                 dURLParams.saveToRegistry();
 
-                btnConnection.Text = "Disconnect";
-                connected = true;
+                cURLParams.connected = "1";
+                cURLParams.saveToRegistry();
+                btnConnection.Text = btnConnectionText[cURLParams.connected];
             }
         }
 
@@ -74,23 +81,18 @@ namespace AutoNauta
 
             if (responseString.Contains("SUCCESS"))
             {
-                btnConnection.Text = "Connect";
-                connected = false;
+                cURLParams.connected = "0";
+                cURLParams.saveToRegistry();
+                btnConnection.Text = btnConnectionText[cURLParams.connected];
             }
         }
 
         private void btnConnection_Click(object sender, EventArgs e)
         {
-            if (connected)
-            {
+            if (cURLParams.connected.Equals("1"))
                 disconnect(); 
-            }
             else
-            {
                 connect();
-                btnConnection.Text = "Disconnect";
-                connected = true;
-            }
         }
 
         public static string getBetween(string strSource, string strStart, string strEnd)
@@ -118,6 +120,8 @@ namespace AutoNauta
         private void MainForm_Load(object sender, EventArgs e)
         {
             cURLParams.loadFromRegistry();
+            if (cURLParams.connected != null)
+                btnConnection.Text = btnConnectionText[cURLParams.connected];
 
             editUsername.Text = cURLParams.username;
             editPassword.Text = cURLParams.password;

@@ -23,6 +23,7 @@ namespace AutoNauta.Model
 
         public void saveToRegistry()
         {
+            // FIXME: Do not save the password as a plain text.
             PropertyInfo[] properties = this.GetType().GetProperties();
             RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\AutoNauta");
 

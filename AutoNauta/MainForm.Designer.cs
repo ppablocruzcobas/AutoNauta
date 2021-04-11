@@ -35,14 +35,12 @@
             this.btnRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.ToolStripMenuItem();
             this.btnConnection = new System.Windows.Forms.ToolStripMenuItem();
-            this.editUsername = new DevExpress.XtraEditors.TextEdit();
-            this.editPassword = new DevExpress.XtraEditors.TextEdit();
-            this.lbUsername = new DevExpress.XtraEditors.LabelControl();
-            this.lbPassword = new DevExpress.XtraEditors.LabelControl();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
+            this.editUsername = new System.Windows.Forms.TextBox();
+            this.editPassword = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.contextMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editUsername.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPassword.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIcon
@@ -83,63 +81,65 @@
             this.btnConnection.Text = "Connect";
             this.btnConnection.Click += new System.EventHandler(this.btnConnection_Click);
             // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Location = new System.Drawing.Point(12, 15);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(58, 13);
+            this.lbUsername.TabIndex = 6;
+            this.lbUsername.Text = "Username:";
+            // 
+            // lbPassword
+            // 
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Location = new System.Drawing.Point(12, 41);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(56, 13);
+            this.lbPassword.TabIndex = 7;
+            this.lbPassword.Text = "Password:";
+            // 
             // editUsername
             // 
             this.editUsername.Location = new System.Drawing.Point(83, 12);
             this.editUsername.Name = "editUsername";
-            this.editUsername.Size = new System.Drawing.Size(100, 20);
-            this.editUsername.TabIndex = 1;
+            this.editUsername.Size = new System.Drawing.Size(155, 20);
+            this.editUsername.TabIndex = 8;
             // 
             // editPassword
             // 
             this.editPassword.Location = new System.Drawing.Point(83, 38);
             this.editPassword.Name = "editPassword";
-            this.editPassword.Properties.UseSystemPasswordChar = true;
-            this.editPassword.Size = new System.Drawing.Size(100, 20);
-            this.editPassword.TabIndex = 2;
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.Location = new System.Drawing.Point(12, 15);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(48, 13);
-            this.lbUsername.TabIndex = 3;
-            this.lbUsername.Text = "Username";
-            // 
-            // lbPassword
-            // 
-            this.lbPassword.Location = new System.Drawing.Point(12, 41);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(46, 13);
-            this.lbPassword.TabIndex = 4;
-            this.lbPassword.Text = "Password";
+            this.editPassword.Size = new System.Drawing.Size(155, 20);
+            this.editPassword.TabIndex = 9;
+            this.editPassword.UseSystemPasswordChar = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(108, 64);
+            this.btnSave.Location = new System.Drawing.Point(163, 64);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(200, 99);
+            this.ClientSize = new System.Drawing.Size(250, 94);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.editPassword);
             this.Controls.Add(this.editUsername);
+            this.Controls.Add(this.lbPassword);
+            this.Controls.Add(this.lbUsername);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "AutoNauta";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.contextMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.editUsername.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPassword.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,11 +152,11 @@
         private System.Windows.Forms.ToolStripMenuItem btnRestore;
         private System.Windows.Forms.ToolStripMenuItem btnClose;
         private System.Windows.Forms.ToolStripMenuItem btnConnection;
-        private DevExpress.XtraEditors.TextEdit editUsername;
-        private DevExpress.XtraEditors.TextEdit editPassword;
-        private DevExpress.XtraEditors.LabelControl lbUsername;
-        private DevExpress.XtraEditors.LabelControl lbPassword;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.TextBox editUsername;
+        private System.Windows.Forms.TextBox editPassword;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
