@@ -39,12 +39,13 @@ namespace AutoNauta.Model
             PropertyInfo[] properties = this.GetType().GetProperties();
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\AutoNauta");
 
-            foreach (PropertyInfo property in properties)
+            if (key != null)
             {
-                if (key.GetValue(property.Name) != null)
+                foreach (PropertyInfo property in properties)
                     property.SetValue(this, key.GetValue(property.Name));
+
+                key.Close();
             }
-            key.Close();
         }
     }
 }
