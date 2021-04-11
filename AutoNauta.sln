@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoNauta", "AutoNauta\AutoNauta.csproj", "{4D8DE175-5686-4CB9-86D3-879F2F1B1B7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D8DE175-5686-4CB9-86D3-879F2F1B1B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D8DE175-5686-4CB9-86D3-879F2F1B1B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D8DE175-5686-4CB9-86D3-879F2F1B1B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D8DE175-5686-4CB9-86D3-879F2F1B1B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48FC0222-E89B-4716-9DE4-DA9AA2E39EF2}
+	EndGlobalSection
+EndGlobal
