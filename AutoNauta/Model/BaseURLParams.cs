@@ -9,13 +9,17 @@ namespace AutoNauta.Model
     {
         public HttpContent getHttpContent()
         {
+            loadFromRegistry();
+
             PropertyInfo[] properties = this.GetType().GetProperties();
 
             Dictionary<string, string> dict = new Dictionary<string, string>();
 
             foreach (PropertyInfo property in properties)
             {
-                dict.Add(property.Name, property.GetValue(this, null).ToString());
+                var value = property.GetValue(this, null);
+                if (value != null) 
+                dict.Add(property.Name, value.ToString());
             }
 
             return new FormUrlEncodedContent(dict);

@@ -50,11 +50,10 @@ namespace AutoNauta
         async void connect()
         {
             var response = await httpClient.PostAsync("https://secure.etecsa.net:8443/LoginServlet", cURLParams.getHttpContent());
+            var responseString = await response.Content.ReadAsStringAsync();
 
-            if (response.IsSuccessStatusCode)
+            if (responseString.Contains("ATTRIBUTE_UUID="))
             {
-                var responseString = await response.Content.ReadAsStringAsync();
-
                 dURLParams.ATTRIBUTE_UUID = getBetween(responseString, "ATTRIBUTE_UUID=", "&");
                 dURLParams.CSRFHW = getBetween(responseString, "CSRFHW=", "\"");
                 dURLParams.domain = getBetween(responseString, "domain=", "\"");
@@ -64,8 +63,6 @@ namespace AutoNauta
                 dURLParams.wlanacname = getBetween(responseString, "wlanacname=", "\"");
                 dURLParams.wlanmac = getBetween(responseString, "wlanmac=", "\"");
                 dURLParams.wlanuserip = getBetween(responseString, "wlanuserip=", "\"");
-
-                dURLParams.saveToRegistry();
 
                 cURLParams.connected = "1";
                 cURLParams.saveToRegistry();
