@@ -22,6 +22,8 @@ namespace AutoNauta
         {
             InitializeComponent();
 
+            WindowState = FormWindowState.Minimized;
+
             connectionController = new ConnectionController("https://secure.etecsa.net:8443/", this);
         }
 
@@ -106,6 +108,11 @@ namespace AutoNauta
         {
             if (connectionController.status.connected.Equals("1"))
                 connectionController.Refresh();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hide();
         }
     }
 }
