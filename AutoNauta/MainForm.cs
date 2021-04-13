@@ -52,7 +52,7 @@ namespace AutoNauta
             var response = await httpClient.PostAsync("https://secure.etecsa.net:8443/LoginServlet", cURLParams.getHttpContent());
             var responseString = await response.Content.ReadAsStringAsync();
 
-            if (responseString.Contains("ATTRIBUTE_UUID="))
+            if (responseString.Contains("ATTRIBUTE_UUID=") && responseString.Contains("CSRFHW="))
             {
                 dURLParams.ATTRIBUTE_UUID = getBetween(responseString, "ATTRIBUTE_UUID=", "&");
                 dURLParams.CSRFHW = getBetween(responseString, "CSRFHW=", "\"");
@@ -66,6 +66,7 @@ namespace AutoNauta
 
                 cURLParams.connected = "1";
                 cURLParams.saveToRegistry();
+                dURLParams.saveToRegistry();
                 btnConnection.Text = btnConnectionText[cURLParams.connected];
             }
         }

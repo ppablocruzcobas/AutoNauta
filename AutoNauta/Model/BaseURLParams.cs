@@ -19,7 +19,7 @@ namespace AutoNauta.Model
             {
                 var value = property.GetValue(this, null);
                 if (value != null) 
-                dict.Add(property.Name, value.ToString());
+                    dict.Add(property.Name, value.ToString());
             }
 
             return new FormUrlEncodedContent(dict);
@@ -33,8 +33,10 @@ namespace AutoNauta.Model
 
             foreach (PropertyInfo property in properties)
             {
+                
                 key.SetValue(property.Name, property.GetValue(this, null).ToString());
             }
+            key.Flush();
             key.Close();
         }
 
