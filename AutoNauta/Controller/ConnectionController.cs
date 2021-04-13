@@ -80,6 +80,8 @@ namespace AutoNauta.Controller
 
             status.connected = responseString.Contains("SUCCESS") ? "0" : "1";
 
+            registry.Save(status);
+
             form.OnDisconnected();
         }
 

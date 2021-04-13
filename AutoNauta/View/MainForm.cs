@@ -104,7 +104,8 @@ namespace AutoNauta
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            connectionController.Refresh();
+            if (connectionController.status.connected.Equals("1"))
+                connectionController.Refresh();
         }
     }
 }

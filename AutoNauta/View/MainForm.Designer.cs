@@ -70,7 +70,7 @@
             // btnConnection
             // 
             this.btnConnection.Name = "btnConnection";
-            this.btnConnection.Size = new System.Drawing.Size(180, 22);
+            this.btnConnection.Size = new System.Drawing.Size(160, 22);
             this.btnConnection.Text = "Connect";
             this.btnConnection.Click += new System.EventHandler(this.btnConnection_Click);
             // 
@@ -89,24 +89,24 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // btnSettings
             // 
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(180, 22);
+            this.btnSettings.Size = new System.Drawing.Size(160, 22);
             this.btnSettings.Text = "Settings";
             this.btnSettings.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
             // 
             // btnClose
             // 
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(180, 22);
+            this.btnClose.Size = new System.Drawing.Size(160, 22);
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -156,7 +156,7 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 60000;
+            this.timer.Interval = 5000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MainForm
