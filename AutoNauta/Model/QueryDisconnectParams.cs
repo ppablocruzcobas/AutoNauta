@@ -1,7 +1,7 @@
 ﻿
 namespace AutoNauta.Model
 {
-    public class DisconnectURLParams : BaseURLParams
+    public class QueryDisconnectParams : BaseQueryParams
     {
         public string username { get; set; }
         public string loggerId { get; set; }

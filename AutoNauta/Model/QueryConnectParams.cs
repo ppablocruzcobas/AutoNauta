@@ -1,11 +1,9 @@
 ﻿
 namespace AutoNauta.Model
 {
-    public class ConnectURLParams : BaseURLParams
+    public class QueryConnectParams : BaseQueryParams
     {
         public string username { get; set; }
         public string password { get; set; }
-
-        public string connected { get; set; } = "0";
     }
 }
