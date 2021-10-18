@@ -31,7 +31,8 @@ namespace AutoNauta.Controller
             if (key != null)
             {
                 foreach (PropertyInfo property in properties)
-                    property.SetValue(obj, key.GetValue(property.Name));
+                    if (key.GetValue(property.Name) != null)
+                        property.SetValue(obj, key.GetValue(property.Name));
 
                 key.Close();
             }
